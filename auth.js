@@ -35,7 +35,7 @@ function datosValidos(email, password){
             res.status(201).json({ mensaje: "Usuario creado" });
         } catch (error) {
             if (error.code === "ER_DUP_ENTRY") {
-                return res.status(409).json({ error: "El email ya está registrado" });
+                return res.status(409).json({ error: "El email ya ha sido registrado anteriormente" });
             }
             console.error(error);
             res.status(500).json({ error: "Error en la base de datos" });
@@ -47,7 +47,7 @@ function datosValidos(email, password){
         try {
             const { email, password } = req.body;
             if (typeof email !== "string" || typeof password !== "string" || !email || !password) {
-                return res.status(400).json({ error: "email y password son requeridos" });
+                return res.status(400).json({ error: "El email y la contraseña son obligatorios" });
             }
  
             const [filas] = await db.query(
