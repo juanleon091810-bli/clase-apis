@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
  
-    // 401: no hay token, es invalido o vencio
+    // 401: no hay token, es invalido o vencidño
     export function verificarToken(req, res, next) {
         const header = req.headers.authorization ?? "";
         const [tipo, token] = header.split(" ");

@@ -4,7 +4,7 @@ import authRouter from "./auth.js";
 
 const app = express();
 app.use(express.json());
-app.use(authRouter());
+app.use(authRouter);
 app.set("json spaces", 2);
 
 app.use((req, res, next) => {
@@ -61,8 +61,6 @@ app.post("/articulos", async (req, res) => {
 });
 
 //ruta post para crear el login y registro
-app.
-
 //ruta put
 app.put("/articulos/:id", async (req, res) => {
     try {
